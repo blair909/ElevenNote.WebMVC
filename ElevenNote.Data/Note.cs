@@ -11,19 +11,18 @@ namespace ElevenNote.Data
     {
         [Key]
         public int NoteId { get; set; }
-
         [Required]
         public Guid OwnerId { get; set; }
-
         [Required]
+        [Display(Name = "Note Title")]
         public string Title { get; set; }
-
         [Required]
+        [Display(Name = "Note Content")]
         public string Content { get; set; }
-
         [Required]
+        [Display(Name = "Date Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-
+        [Display(Name = "Date Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
