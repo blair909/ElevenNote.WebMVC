@@ -1,33 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElevenNote.Data
+namespace ElevenNote.Models
 {
-    public class Note
+    public class NoteEdit
     {
-        [Key]
+        [Display(Name = "Note Id")]
         public int NoteId { get; set; }
         [Required]
-        public Guid NoteOwnerId { get; set; }
-        [Required]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
+        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         [Display(Name = "Note Title")]
         public string Title { get; set; }
-        [Required]
+        [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]
         [Display(Name = "Note Content")]
         public string Content { get; set; }
-        [Required]
-        [Display(Name = "Date Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Date Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
-        [ForeignKey(nameof(CategoryId))]
+        public DateTimeOffset ModifiedUtc {get;set;}
         [Display(Name = "Category Id")]
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
     }
 }

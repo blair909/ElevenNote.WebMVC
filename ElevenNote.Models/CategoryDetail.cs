@@ -5,20 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElevenNote.Data
+namespace ElevenNote.Models
 {
-    public class Category
+    public class CategoryDetail
     {
-        [Key]
+        [Display(Name = "Category Id")]
         public int CategoryId { get; set; }
-        [Required]
         [Display(Name = "Category Name")]
         public string CategoryName { get; set; }
-        // public ICollection<Note> Notes { get; set; }
-        [Required]
         [Display(Name = "Category Content")]
         public string CategoryContent { get; set; }
-        [Required]
-        public Guid CategoryOwnerId { get; set; }
     }
 }
